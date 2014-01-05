@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-img = cv2.imread('../images/img1.jpg')
+img = cv2.imread('../images/t-img2.jpg')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
 corners = cv2.goodFeaturesToTrack(gray,25,0.01,10)
