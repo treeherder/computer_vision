@@ -24,8 +24,8 @@ for idx, contour in enumerate(contours):
         print str(width)+" "+str(height)
         box = cv2.cv.BoxPoints(rect)
         box = np.int0(box)
-        if(height>0.9*width and height<1.1*width):
-            
-          cv2.drawContours(frame,[box], 0, (0, 0, 255), 2)
+        x = cv2.boundingRect(rect)    
 
 cv2.imshow('img',frame)
+if cv2.waitKey(0) & 0xff == 27:  #escape
+    cv2.destroyAllWindows()
