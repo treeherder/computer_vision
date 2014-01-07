@@ -25,7 +25,7 @@ while True:
     # finding centroids of best_cnt and draw a circle there
     M = cv2.moments(best_cnt)
     cx,cy = int(M['m10']/M['m00']), int(M['m01']/M['m00'])
-    cv2.circle(frame,(cx,cy),5,255,-1)
+    cv2.square(frame,(cx,cy),5,255,-1)
     cv2.imshow("video", frame)
     if cv2.waitKey(5)==27:   #press esc to exit
         break

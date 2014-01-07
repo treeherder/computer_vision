@@ -15,6 +15,10 @@ video
 <dd>does single largest blob tracking in video, look for the blue dot </dd>
 using static images
 --------------------
+<dt> cell</dt>
+<dd>usage: python cell.py <image.jpg></dd>
+<dd>the image should be within ~/projects/cv/images and should be already thresholded</dd>
+<dd>the bread-and-butter of this project: working on actually identifying the cell on a field</dd>
 <dt>thresholding</dt>
 <dd>the lynchpin of the rest of the software, performs thresholding operations to reduce noise</dd>
 <dd>usage: `python thresholding.py --image <img xyz.jpg>` </dd>

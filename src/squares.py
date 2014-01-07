@@ -24,7 +24,7 @@ for idx, contour in enumerate(contours):
         print str(width)+" "+str(height)
         box = cv2.cv.BoxPoints(rect)
         box = np.int0(box)
-        x = cv2.boundingRect()    
+            
 
 cv2.imshow('img',frame)
 if cv2.waitKey(0) & 0xff == 27:  #escape
