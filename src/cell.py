@@ -21,7 +21,7 @@ def mask(img):
   contours, hierarchy = cv2.findContours(thresh,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
   for cnt in contours:
     area = cv2.contourArea(cnt)
-    if area > 100 and area < 2000:  #an arbitrary limit to stop the whole frame from being bound
+    if area < 1000:  # 303849 the largest upper bound thats not the whole frame
       peri = cv2.arcLength(cnt, True)
       approx = cv2.approxPolyDP(cnt, peri, True)
       if area > max_area and len(approx)==4:
@@ -29,8 +29,7 @@ def mask(img):
       	max_area = area
       x,y,w,h = cv2.boundingRect(cnt)
       cv2.rectangle(res, (x,y),(x+w,y+h),(0,255,0),2)
-
-      cv2.drawContours(res,[approx],0,(20,130,50),-1)
+      #cv2.drawContours(res,[cnt],0,(20,130,50),-1)
   cv2.imshow('contour-highlighted image.jpg', res )
   cv2.imshow('edges', blk)
 if __name__ == '__main__':
