@@ -25,7 +25,7 @@ def mask(img):
     points = cv2.cv.BoxPoints(rect)
     points  = np.int0(np.around(points))
     cv2.drawContours(dest, [cnt],0,(0,255,0),2)
-    cv2.polylines(dest, [points], True,(255,0,0),2 )
+    cv2.polylines(dest, [points], True,( 255,255,255), 25 )
   x = cv2.cvtColor(dest, cv2.COLOR_GRAY2RGB)
   cv2.imshow('contour-highlighted image.jpg', x)
   cv2.imwrite("../images/bound.jpg", x)
