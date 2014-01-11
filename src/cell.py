@@ -17,12 +17,13 @@ def mask(img):
   blk = cv2.bitwise_not(grey)
   kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3))
   res = cv2.morphologyEx(blk,cv2.MORPH_OPEN,kernel)
-  ret,thresh = cv2.threshold(res,127,255,0)
+  ret,thresh = cv2.threshold(blk,127,255,0)
   contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
   dest = np.zeros(thresh.shape, np.uint8)
-  for cnt in contours:
-    print cnt
-    if cnt.any() >= 1:
+  print contours[0]
+  print len(contours)
+  for cnt in contours[1:]:
+    if cnt.any() > 0:
       rect  = cv2.minAreaRect(cnt)
       points = cv2.cv.BoxPoints(rect)
       points  = np.int0(np.around(points))

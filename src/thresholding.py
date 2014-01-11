@@ -4,7 +4,7 @@ import contours as ors
 import argparse
 
 parser = argparse.ArgumentParser(description = "performs canny edge detection on a still image")
-parser.add_argument('--image')
+parser.add_argument("image", help = "give the name of a file in ../images/", type=str)
 args = parser.parse_args()
 
 def threshold(z):

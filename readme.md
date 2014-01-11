@@ -6,6 +6,20 @@ targeted at mac OSX mavericks python2.7
 
 opencv installed with homebrew.... each dependency was installed manually .. in this case, eigen, qt, and  a reinstall of cmake.  in some cases, numpy / scipy will need to be installed as well
 
+to do:
+___________________
+
+auto-range for thresholding based on expected values
+
+~~find contours~~
+
+mask object
+
+find  coordinates of masked object
+
+integrate the components into a single toolchain
+
+
 video
 --------------------
 <dl>
@@ -21,7 +35,7 @@ using static images
 <dd>the bread-and-butter of this project: working on actually identifying the cell on a field</dd>
 <dt>thresholding</dt>
 <dd>the lynchpin of the rest of the software, performs thresholding operations to reduce noise</dd>
-<dd>usage: `python thresholding.py --image <img xyz.jpg>` </dd>
+<dd>usage: `python thresholding.py <img.jpg>` </dd>
 <dd>displays the thresholded image and saves it</dd>
 <dt>corner.py</dt>
 <dd>foundation functions for edge detection sloppy but reasonably quick</dd>
