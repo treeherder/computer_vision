@@ -21,15 +21,16 @@ def mask(img):
   contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
   dest = np.zeros(thresh.shape, np.uint8)
   for cnt in contours:
-    rect  = cv2.minAreaRect(cnt)
-    points = cv2.cv.BoxPoints(rect)
-    points  = np.int0(np.around(points))
-    cv2.drawContours(dest, [cnt],0,(0,255,0),2)
-    cv2.polylines(dest, [points], True,( 255,255,255), 25 )
-  x = cv2.cvtColor(dest, cv2.COLOR_GRAY2RGB)
-  cv2.imshow('contour-highlighted image.jpg', x)
-  cv2.imwrite("../images/bound.jpg", x)
-  cv2.imshow('edges', thresh)
+    print cnt
+    if cnt.any() >= 1:
+      rect  = cv2.minAreaRect(cnt)
+      points = cv2.cv.BoxPoints(rect)
+      points  = np.int0(np.around(points))
+      cv2.drawContours(dest, [cnt],0,(0,255,0),2)
+      cv2.polylines(dest, [points], True,( 255,255,255), 2 )
+    cv2.imshow('contour-highlighted image.jpg', dest)
+    cv2.imwrite("../images/bound.jpg", dest)
+    cv2.imshow('edges', thresh)
 if __name__ == '__main__':
   mask(frame)	
   if cv2.waitKey(0) & 0xff == 27:  #escape
