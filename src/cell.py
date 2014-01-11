@@ -18,21 +18,17 @@ def mask(img):
   kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3))
   res = cv2.morphologyEx(blk,cv2.MORPH_OPEN,kernel)
   ret,thresh = cv2.threshold(res,127,255,0)
-  contours, hierarchy = cv2.findContours(thresh,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
+  contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+  dest = np.zeros(thresh.shape, np.uint8)
   for cnt in contours:
-    area = cv2.contourArea(cnt)
-    if area < 1000:  # 303849 the largest upper bound thats not the whole frame
-      peri = cv2.arcLength(cnt, True)
-      approx = cv2.approxPolyDP(cnt, peri, True)
-      if area > max_area and len(approx)==4:
-      	biggest = approx
-      	max_area = area
-      x,y,w,h = cv2.boundingRect(cnt)
-      cv2.rectangle(res, (x,y),(x+w,y+h),(0,255,0),2)
-      #cv2.drawContours(res,[cnt],0,(20,130,50),-1)
-  cv2.imshow('contour-highlighted image.jpg', res )
+    rect  = cv2.minAreaRect(cnt)
+    points = cv2.cv.BoxPoints(rect)
+    points  = np.int0(np.around(points))
+    cv2.drawContours(dest, [cnt],0,(0,255,0),2)
+    cv2.polylines(dest, [points], True,(255,0,0),2 )
+  cv2.imshow('contour-highlighted image.jpg', dest )
   cv2.imwrite("../images/bound.jpg", res)
-  cv2.imshow('edges', blk)
+  cv2.imshow('edges', thresh)
 if __name__ == '__main__':
   mask(frame)	
   if cv2.waitKey(0) & 0xff == 27:  #escape

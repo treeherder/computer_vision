@@ -17,6 +17,7 @@ def threshold(z):
   mrgd = cv2.merge([hue, sat, val])    #threshold for just the black square
   bgr = cv2.cvtColor(mrgd, cv2.COLOR_HSV2BGR)
   gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+  blur = cv2.GaussianBlur(gray, (5,5), 0)
   mask = ors.cntr(gray)
   edges = cv2.Canny(mask,100,200)
   cv2.imshow('mask',edges)
