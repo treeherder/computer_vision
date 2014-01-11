@@ -31,6 +31,7 @@ def mask(img):
       cv2.rectangle(res, (x,y),(x+w,y+h),(0,255,0),2)
       #cv2.drawContours(res,[cnt],0,(20,130,50),-1)
   cv2.imshow('contour-highlighted image.jpg', res )
+  cv2.imwrite("../images/bound.jpg", res)
   cv2.imshow('edges', blk)
 if __name__ == '__main__':
   mask(frame)	
