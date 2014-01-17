@@ -25,8 +25,9 @@ def threshold(z):
   cv2.imshow('sat',sat)
   cv2.imshow('val',val)
 
-  cv2.imwrite("../images/t-{0}".format(z), edges)
+  x = cv2.imwrite("../images/t-{0}".format(z), edges)
+  return(x)
   if cv2.waitKey(0) & 0xff == 27:  #escape
     cv2.destroyAllWindows()
-
-threshold(args.image)
+if __name__ == 'main()':
+  threshold(args.image)

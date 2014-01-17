@@ -14,6 +14,8 @@ auto-range for thresholding based on expected values
 ~~find contours~~
 
 mask object
+ blob detection
+ convolution
 
 find  coordinates of masked object
 
