@@ -8,7 +8,7 @@ parser.add_argument("image", help = "give the name of a file in ../images/", typ
 args = parser.parse_args()
 
 def threshold(z):
-  img = cv2.imread("../images/{0}".format(z))
+  img = cv2.imread("../../images/{0}".format(z))
   hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
   (hue, sat, val)  = cv2.split(hsv)
   hf, hue  = cv2.threshold(hue, 255, 255, cv2.THRESH_BINARY)   #0,20
@@ -20,13 +20,13 @@ def threshold(z):
   blur = cv2.GaussianBlur(gray, (5,5), 0)
   mask = ors.cntr(gray)
   edges = cv2.Canny(mask,100,200)
-  cv2.imshow('mask',edges)
-  cv2.imshow('hue',hue)
-  cv2.imshow('sat',sat)
-  cv2.imshow('val',val)
+  #cv2.imshow('mask',edges)
+  #cv2.imshow('hue',hue)
+  #cv2.imshow('sat',sat)
+  #cv2.imshow('val',val)
 
-  cv2.imwrite("../images/t-{0}".format(z), edges)
-  if cv2.waitKey(0) & 0xff == 27:  #escape
-    cv2.destroyAllWindows()
+  cv2.imwrite("../../images/t-{0}".format(z), edges)
+  #if cv2.waitKey(0) & 0xff == 27:  #escape
+  #   cv2.destroyAllWindows()
 
 threshold(args.image)
