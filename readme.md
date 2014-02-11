@@ -9,15 +9,13 @@ opencv installed with homebrew.... each dependency was installed manually .. in 
 to do:
 ___________________
 
-auto-range for thresholding based on expected values
-
-~~find contours~~
-
-mask object
-
-find  coordinates of masked object
-
-integrate the components into a single toolchain
+[x] find contours
+[x] test with wires
+[x] mask object
+[x] implement template matching
+[ ] find  coordinates of masked + matching object
+[ ] auto-range for thresholding based on expected values
+[ ] integrate the components into a single toolchain
 
 
 video
@@ -33,9 +31,16 @@ using static images
 <dd>usage: `python cell.py <image.jpg>`</dd>
 <dd>the image should be within ~/projects/cv/images and should be already thresholded</dd>
 <dd>the bread-and-butter of this project: working on actually identifying the cell on a field</dd>
+<dt> wire </dt>
+  <dd>usage: `python wire.py <image.jpg>`</dd>
+  <dd>this is a clone of cell that works off of wire_thresholding to threshold values for the wire</dd>
+<dt> wire_thresholding</dt>
+<dd>usage: `python wire_thresholding.py <img.jpg>` </dd>
+<dd>a direct clone of thresholding as a placeholder for a more dynamic toolchain</dd>
 <dt>thresholding</dt>
 <dd>the lynchpin of the rest of the software, performs thresholding operations to reduce noise</dd>
 <dd>usage: `python thresholding.py <img.jpg>` </dd>
+<dd>runs behind cell, to smooth the transition </dd>
 <dd>displays the thresholded image and saves it</dd>
 <dt>corner.py</dt>
 <dd>foundation functions for edge detection sloppy but reasonably quick</dd>
