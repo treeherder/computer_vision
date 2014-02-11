@@ -9,13 +9,13 @@ opencv installed with homebrew.... each dependency was installed manually .. in 
 to do:
 ___________________
 
-[x] find contours
-[x] test with wires
-[x] mask object
-[x] implement template matching
-[ ] find  coordinates of masked + matching object
-[ ] auto-range for thresholding based on expected values
-[ ] integrate the components into a single toolchain
+- [x] find contours
+- [x] test with wires
+- [x] mask object
+- [x] implement template matching
+- [ ] find  coordinates of masked + matching object
+- [ ] auto-range for thresholding based on expected values
+- [ ] integrate the components into a single toolchain
 
 
 video
