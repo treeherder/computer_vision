@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("img", help = "give the name of a file in ../../images/", type=str)
 args = parser.parse_args() 
 
-frame = cv2.imread('../../images/{0}'.format(args.img))
+frame = cv2.imread('../../images/t-{0}'.format(args.img))
 
 def mask(img):
   biggest =None
