@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-from matplotlib import pyplot as plt
 import argparse 
 from wire_thresholding import threshold
 import time
@@ -24,8 +23,8 @@ def mask(img):
   ret,thresh = cv2.threshold(grey,127,255,0)
   contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_NONE)
   dest = np.zeros(thresh.shape, np.uint8)
-  print contours[::1]
-  print len(contours)
+  print contours
+  print len(contours[0])
   print hierarchy
   for cnt in contours[::1]:
     rect  = cv2.minAreaRect(cnt)
