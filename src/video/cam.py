@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-c = cv2.VideoCapture(0)
+c = cv2.VideoCapture("test.avi")
 
 def main():
   ret,frame = c.read()
