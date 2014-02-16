@@ -5,10 +5,7 @@ capture = cv2.VideoCapture(0)
 flag, frame = capture.read()
 width = np.size(frame, 1) # automatically determine frame dimensions
 height = np.size(frame, 0)
-writer = cv2.VideoWriter(filename="test.avi", 
-fourcc=cv2.cv.CV_FOURCC('I', 'Y', 'U', 'V'), # fourcc is pretty universal
-fps=15 
-frameSize=(width, height))
+writer = cv2.VideoWriter(filename="test.avi", fourcc=cv2.cv.CV_FOURCC('I', 'Y', 'U', 'V'), fps=15, frameSize=(width, height))
 
 while True:
   flag, frame = capture.read() # flag == 0 fails
