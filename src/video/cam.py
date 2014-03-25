@@ -38,8 +38,8 @@ def main():
     cv2.fillPoly(dest, [cnt], (255,255,255), 4)
 
     x = cv2.cvtColor(dest,cv2.COLOR_GRAY2RGB)
+    cv2.putText(x, ">|<", (600,400), cv2.FONT_HERSHEY_PLAIN, 1.0, (255,255,255), thickness=1)
     cv2.imshow('contour-highlighted image.jpg', x)
- 
 
 while 1:
   main()
